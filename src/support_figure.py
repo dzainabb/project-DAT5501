@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 # Function to load CSV files
 def load_data():
     
-    fertility= pd.read_csv('/Users/sabiqadar/Desktop/project-DAT5501/data/children-per-woman-un.csv')
+    fertility= pd.read_csv('data/children-per-woman-un.csv')
 
     fertility['Year'] = fertility['Year'].astype(int)
 
