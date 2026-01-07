@@ -25,7 +25,7 @@ chi2_dof = []
 #plot all data
 plt.figure(figsize=(10, 6))
 plt.plot(years, uk, 'k-',linewidth=2, label= 'observed')
-
+# CHi-squared calculation and polynomial fitting - plots different orders to see which fits best
 for deg in orders:
     coefficients = np.polyfit(x_train, y_train, deg)
     model = np.poly1d(coefficients)
@@ -36,14 +36,14 @@ for deg in orders:
     chi2 = np.sum(residuals**2)
     dof = len(y_test) - (deg + 1)
 
-    chi2_dof.append(chi2/dof)
+    chi2_dof.append(chi2/dof) #chi-squared per degree of freedom
 
     plt.plot(x_test,
               y_predicted,
               '--', 
              linewidth =1.5,
              label=f'Degree {deg}')
-    
+
 plt.xlabel('Year')
 plt.ylabel('Total Fertility Rate')
 plt.title('Polynomial Fits to UK Fertility Data with Chi-Squared per Degree of Freedom')

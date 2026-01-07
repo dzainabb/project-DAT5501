@@ -26,6 +26,7 @@ bic_values = []
 plt.figure(figsize=(10, 6))
 plt.plot(years, uk, 'k-',linewidth=2, label= 'observed')
 
+# BIC calculation and polynomial fitting - plots different orders to see which fits best
 for deg in orders:
     coefficients = np.polyfit(x_train, y_train, deg)
     model = np.poly1d(coefficients)

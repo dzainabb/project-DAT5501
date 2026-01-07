@@ -12,9 +12,9 @@ fertility = fertility[fertility['Year'] == 2023]
 
 
 df = pd.merge(employemnt, fertility, on=['Entity', 'Year', 'Code'])
-
+# Highlight countries to annotate
 highlight = ['China', 'India', 'Somalia','Yemen',  'Nigeria', 'Mexico', 'Chad', 'United Kingdom', 'South Korea']
-
+# Prepare data for regression
 x = df[['Labor force participation rate, female (% of female population ages 15+) (modeled ILO estimate)']]
 y = df['Fertility rate - Sex: all - Age: all - Variant: estimates']
 
@@ -49,7 +49,7 @@ plt.scatter(
     color='green',
     label='Highlighted Countries'
 )
-
+# Annotate highlighted countries
 for _, row in highlight_data.iterrows():
     plt.text(
         row['Labor force participation rate, female (% of female population ages 15+) (modeled ILO estimate)'],
@@ -58,7 +58,7 @@ for _, row in highlight_data.iterrows():
         fontsize=20,
         color='red'
     )
-
+# Plot regression line
 plt.plot(x,y_pred, color='red', label='Regression Line')
 plt.xlabel('Female labour force participation rate (%)')
 plt.ylabel('Fertililty Rate')
