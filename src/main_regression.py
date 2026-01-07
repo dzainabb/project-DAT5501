@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 # Load dataset + merge
 employemnt = pd.read_csv('data/female-labor-force-participation-rates.csv')
-fertility = pd.read_csv('data/children-per-woman-un.csv')
+fertility = pd.read_csv('`data/children-per-woman-un.csv')
 
 #only having 2023 data
 employemnt = employemnt[employemnt['Year'] == 2023]
