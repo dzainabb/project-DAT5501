@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-data = pd.read_csv('data/children-per-woman-un.csv')
+data = pd.read_csv('data/fertility_rate.csv')
 
 uk_data = data[data['Code'] == 'GBR']
 uk_data = uk_data.sort_values(by='Year')

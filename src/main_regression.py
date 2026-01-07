@@ -3,8 +3,8 @@ from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
 
 # Load dataset + merge
-employemnt = pd.read_csv('data/female-labor-force-participation-rates.csv')
-fertility = pd.read_csv('`data/children-per-woman-un.csv')
+employemnt = pd.read_csv('data/female_employment.csv')
+fertility = pd.read_csv('`data/fertility_rate.csv')
 
 #only having 2023 data
 employemnt = employemnt[employemnt['Year'] == 2023]
