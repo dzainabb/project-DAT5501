@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 # Load dataset + merge
 employemnt = pd.read_csv('data/female_employment.csv')
-fertility = pd.read_csv('`data/fertility_rate.csv')
+fertility = pd.read_csv('data/fertility_rate.csv')
 
 #only having 2023 data
 employemnt = employemnt[employemnt['Year'] == 2023]
@@ -13,7 +13,7 @@ fertility = fertility[fertility['Year'] == 2023]
 
 df = pd.merge(employemnt, fertility, on=['Entity', 'Year', 'Code'])
 # Highlight countries to annotate
-highlight = ['China', 'India', 'Somalia','Yemen',  'Nigeria', 'Mexico', 'Chad', 'United Kingdom', 'South Korea']
+highlight = ['China', 'India', 'Somalia','Yemen',  'Nigeria', 'Mexico', 'Chad', 'United Kingdom', 'South Korea', 'Congo', 'Italy', 'France']
 # Prepare data for regression
 x = df[['Labor force participation rate, female (% of female population ages 15+) (modeled ILO estimate)']]
 y = df['Fertility rate - Sex: all - Age: all - Variant: estimates']
@@ -54,10 +54,13 @@ for _, row in highlight_data.iterrows():
     plt.text(
         row['Labor force participation rate, female (% of female population ages 15+) (modeled ILO estimate)'],
         row['Fertility rate - Sex: all - Age: all - Variant: estimates'],
-        row['Entity'],
-        fontsize=20,
+        row['Code'],
+        fontsize=15,
+        fontweight='bold',
         color='red'
     )
+    
+
 # Plot regression line
 plt.plot(x,y_pred, color='red', label='Regression Line')
 plt.xlabel('Female labour force participation rate (%)')

@@ -14,8 +14,9 @@ countries = {
     'United Kingdom': 'GBR',
     'India': 'IND',
     'China': 'CHN',
-    'Brazil': 'BRA',
-    'Germany': 'DEU'
+    'United States': 'USA',
+    'France': 'FRA',
+    'South Korea': 'KOR'
 }
 fertility_df= load_data()
 
