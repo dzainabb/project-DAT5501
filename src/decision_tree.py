@@ -7,8 +7,8 @@ from sklearn.metrics import mean_squared_error, r2_score
 
 # Load dataset and filter to 2024
 
-def load_data():
-    combined = pd.read_csv('data/combined_data.csv')
+def load_data(filepath='data/combined_data.csv'):
+    combined = pd.read_csv(filepath)
 #clean columns and filter year - debugging issues
     combined.columns = combined.columns.str.strip()
     combined['Year'] = pd.to_numeric(combined['Year'], errors='coerce').astype('Int64')
@@ -17,10 +17,12 @@ def load_data():
     data = combined[combined['Year'] == 2023]
     data = data[
         ['Country Name',
-         'Fertility Rate',
-          'Female employment (%)',
-           'GDP per capita',
-            'Urban Population (%)'
+        'Country Code',
+        'Year',
+        'Fertility Rate',
+        'Female employment (%)',
+        'GDP per capita',
+        'Urban Population (%)'
         ]]
     data = data.dropna()
     return data

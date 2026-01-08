@@ -2,9 +2,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Function to load CSV files
-def load_data():
+def load_data(filepath='data/fertility_rate.csv'):
     
-    fertility= pd.read_csv('data/fertility_rate.csv')
+    fertility= pd.read_csv(filepath)
 
     fertility['Year'] = fertility['Year'].astype(int)
 
