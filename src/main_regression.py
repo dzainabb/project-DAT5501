@@ -12,6 +12,17 @@ fertility = fertility[fertility['Year'] == 2023]
 
 
 df = pd.merge(employemnt, fertility, on=['Entity', 'Year', 'Code'])
+
+df = df.dropna(subset=[
+    'Labor force participation rate, female (% of female population ages 15+) (modeled ILO estimate)',
+    'Fertility rate - Sex: all - Age: all - Variant: estimates'
+])
+
+print("Rows after cleaning:", df.shape[0])
+print(df[['Labor force participation rate, female (% of female population ages 15+) (modeled ILO estimate)']].std())
+
+
+
 # Highlight countries to annotate
 highlight = ['China', 'India', 'Somalia','Yemen',  'Nigeria', 'Mexico', 'Chad', 'United Kingdom', 'South Korea', 'Congo', 'Italy', 'France']
 # Prepare data for regression
