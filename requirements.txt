@@ -1,4 +1,4 @@
-python -m pytest
+pytest
 
 numpy
 pandas
